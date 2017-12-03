@@ -8,9 +8,32 @@
 
 	<body>
 		<h1> Paul's To Do List App </h1>
-		<button id="displayTodosButton">Display Todos</button>
-		<button id="toggleAllButton">Toggle All</button>
 		
+		<div>
+			<button onclick="handlers.displayTodos()">Display Todos</button>
+			<button onclick="handlers.toggleAll()">Toggle All</button>
+		</div>
+
+		<div>
+			<button onclick="handlers.addTodos()">Add</button>
+			<input id="addTodoTextInput" type="text">
+		</div>
+
+		<div>
+			<button onclick="handlers.changeTodos()">Change Item</button>
+			<input id="changeTodoPositionInput" type="number">
+			<input id="changeTodoTextInput" type="text">
+		</div>
+
+		<div>
+			<button onclick="handlers.deleteTodos()">Delete</button>
+			<input id="deleteTodoPositionInput" type="number">
+		</div>
+
+		<div>
+			<button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+			<input id="toggleCompletedPositionInput" type="number">
+		</div>
 
 		<script src="project9.js"></script>
 	</body>
