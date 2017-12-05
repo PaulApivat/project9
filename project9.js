@@ -90,10 +90,10 @@ var handlers = {
 		changeTodoTextInput.value ='';
 		view.displayTodos();
 	},
-	deleteTodos: function(){
-		var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
-		todoList.deleteTodos(deleteTodoPositionInput.valueAsNumber);
-		deleteTodoPositionInput.value ='';
+	deleteTodos: function(position){
+	//	var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
+		todoList.deleteTodos(position);
+	//	deleteTodoPositionInput.value ='';
 		view.displayTodos();
 	},
 	toggleCompleted: function(){
@@ -129,9 +129,34 @@ var view = {
 			//		todoTextWithCompletion = todoList.todos[i].todoText + "( )";
 			//	}
 
-
+			todoLi.id = i;
 			todoLi.textContent = todoTextWithCompletion;
+			todoLi.appendChild(this.createDeleteButton());
 			todosUl.appendChild(todoLi);
 		}
+	},
+	createDeleteButton: function(){
+		var deleteButton = document.createElement('button');
+		deleteButton.textContent = "Delete";
+		deleteButton.className = "deleteButton";
+		return deleteButton;
+	},
+	setUpEventListeners: function() {
+		var todosUl = document.querySelector('ul');
+		
+		todosUl.addEventListener('click', function(event) {
+			console.log(event.target.parentNode.id);
+
+			//Get the element that was clicked on
+			var elementClicked = event.target;
+
+			//Check if elementCLicked is a delete button
+			if (elementClicked.className === 'deleteButton'){
+				handlers.deleteTodos(parseInt(elementClicked.parentNode.id));
+			}
+		});
 	}
 };
+
+view.setUpEventListeners();
+
