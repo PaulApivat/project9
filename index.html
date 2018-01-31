@@ -42,31 +42,12 @@
 			<a href="http://watchandcode.com">Watch and Code</a>
 		</div>
 
-		<!-- WARNING  -->
-			<p> <b>Warning</b>: Web Storage allows third-party websites to save and read cookie data.</p>
-			<p> <b>To change </b>: Chrome Setting > Advance Setting > Content Setting > Cookies </p>
 		
-		<!-- Script to Check if Browser Supports Web Storage  -->
-		<div id="result"></div>
 
-			<script>
-			// Check browser support
-			if (typeof(Storage) !== "undefined") {
-			    // Store
-			    localStorage.setItem("lastname", "Yes! Support for Web Storage.");
-			    // Retrieve
-			    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-			} else {
-			    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-			}
-			</script>
+			
 
 
-		<!-- Button created just for Browser Storage; LINK to handlers object, browserStore function  -->
-		<div> 
-			<button onclick="handlers.browserStore()">Add to Store Items</button>
-			<input id="browserStoreTextInput" type="text">
-		</div>
+		
 
 		<script src="project9.js"></script>
 	</body>

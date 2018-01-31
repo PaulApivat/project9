@@ -1,14 +1,15 @@
 
 
 
+
 var todoList = {										//create todoList object
 	todos: [],											//create todos array attribute 
 	
 	addTodos: function(todoText){  			//create addTodos function that passes todoText argument
-		this.todos.push({					//addTodos function adds 'todo' items into todos array through .push method, 'this' refers to todoList object coz todos array 'belongs to' 'this' (todoList object)
+			this.todos.push({					//addTodos function adds 'todo' items into todos array through .push method, 'this' refers to todoList object coz todos array 'belongs to' 'this' (todoList object)
 			todoText: todoText,				//each to 'todo' item has two value attributes - todoText (a string that is the todolist item) and whether 'completed' boolean (default: false)
 			completed: false		
-		});				
+		});		
 	},
 	changeTodos: function(position, todoText){   //create changeTodos function passing two arguments - position & todoText; when changing a todoList item, we need to know it's position and its text
 		this.todos[position] = {    			//indicate a specific item in todos array by - todos[position] - 'this' refers to todoList object
@@ -43,8 +44,8 @@ var todoList = {										//create todoList object
 				} else {
 					todo.completed = true;	//then make everything true
 				}
-			});
-		}
+		});
+	}
 };
 
 
@@ -78,19 +79,6 @@ var handlers = {				//create handlers object, to handle all data on interface
 	toggleAll: function(){			//create to toggleAll function
 		todoList.toggleAll();		//run toggleAll function on todoList object; reference toggleAll function already IN todoList object
 		view.displayTodos();		//call view object, run displayTodos function (see below)
-	},
-	browserStore: function(){  //pasted from https://www.w3schools.com/html/html5_webstorage.asp
-		//var browserStoreTextInput = document.getElementById("browserStoreTextInput");
-		if(typeof(Storage) !== "undefined") {    
-	        if (localStorage.clickcount) {
-	            localStorage.clickcount = Number(localStorage.clickcount)+1;
-	        } else {
-	            localStorage.clickcount = 1;
-	        }
-	        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
-	    } else {
-	        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-	    }
 	}
 };
 
